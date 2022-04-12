@@ -11,24 +11,65 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+// const makeLowerCase = (input) => {
+//   let result = input.toLowerCase()
+//   console.log(result)
+//   return result
+// } 
+
+// console.log(makeLowerCase("YES PLEASE"))
+
+// const makeShorter = (input) => {
+//   let result = input.trim()
+//   console.log(result)
+//   return result
+// }
+
+// console.log(makeShorter("thanks              "))
+
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
+  // hand1 = makeLowerCase(hand1)
+  // hand1 = makeShorter(hand1)
+  // hand2 = makeLowerCase(hand2)
+  // hand2 = makeShorter(hand2)
+  hand1 = hand1.toLowerCase().trim()
+  hand2 = hand2.toLowerCase().trim()
+
+  if (hand1 === hand2) {
+    return "It's a tie!";
+  } else if (hand1 === "rock" && hand2 === "paper") {
+      return "Hand two wins!";
+  } else if (hand1 === "paper" && hand2 === "scissors") {
+      return "Hand two wins!";
+  } else  if (hand1 === "scissors" && hand2 === "rock") {
+      return "Hand two wins!";
+  } else  if (hand1 === "scissors" && hand2 === "paper") {
+      return "Hand one wins!";
+  } else  if (hand1 === "paper" && hand2 === "rock") {
+      return "Hand one wins!";
+  } else {
+      return "Hand one wins!";
+  } 
 
   // Write code here
   // Use the unit test to see what is expected
-
 }
 
+// makeLowerCase(rockPaperScissors)
+// makeShorter(rockPaperScissors)
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
 // to close it ctrl + C
 function getPrompt() {
-  rl.question('hand1: ', (answer1) => {
-    rl.question('hand2: ', (answer2) => {
+  rl.question('hand1: ', (answer1) => { 
+    rl.question('hand2: ', (answer2) => { 
       console.log( rockPaperScissors(answer1, answer2) );
       getPrompt();
     });
   });
+ 
+ 
 }
 
 // Unit Tests
